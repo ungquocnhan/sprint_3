@@ -6,7 +6,7 @@ export default function useClock() {
 
     const updateTime = function () {
         let dateInfo = new Date();
-        let hour = 0;
+        let hour;
         if (dateInfo.getHours() ===0) {
             hour = 12;
         }else if (dateInfo.getHours() > 12) {

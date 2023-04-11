@@ -14,14 +14,14 @@ export const CarSelection = () => {
 
     const choiceCar = (e) => {
         const value = e.target.value;
-        setSelectedCar(prevState => {
-            return value;
+        setSelectedCar((prevState) => {
+            return {...prevState, value};
         })
     }
 
     const choiceColor = (e) => {
         const value = e.target.value;
-        setSelectedColor(prevState => {
+        setSelectedColor(() => {
             return value;
         })
     }
@@ -34,7 +34,7 @@ export const CarSelection = () => {
                 choiceCar(e);
             }}
         >
-            {carList.map((car, index) => (
+            {carList.map((car) => (
                 <option key={car.id} value={car.name}>{car.name}</option>
             ))}
         </select>

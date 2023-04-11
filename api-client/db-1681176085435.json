@@ -1,0 +1,34 @@
+{
+  "books": [
+    {
+      "title": "LG",
+      "amount": "6",
+      "id": 3
+    },
+    {
+      "title": "VCB",
+      "amount": "2",
+      "id": 4
+    },
+    {
+      "title": "VTB",
+      "amount": "5",
+      "id": 5
+    },
+    {
+      "title": "AIBD",
+      "amount": "4",
+      "id": 6
+    },
+    {
+      "title": "1",
+      "amount": "1",
+      "id": 7
+    },
+    {
+      "title": "2",
+      "amount": "2",
+      "id": 8
+    }
+  ]
+}

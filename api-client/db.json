@@ -1,0 +1,99 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Tommy"
+    },
+    {
+      "id": 2,
+      "name": "Jennie"
+    },
+    {
+      "id": 3,
+      "name": "Harry"
+    },
+    {
+      "id": 4,
+      "name": "Beck"
+    },
+    {
+      "id": 5,
+      "name": "Ben"
+    },
+    {
+      "id": "6",
+      "name": "Quoc Nhan Ung"
+    },
+    {
+      "id": "7",
+      "name": "Quốc Long"
+    },
+    {
+      "birthday": "2023-04-04",
+      "id": "8",
+      "name": "Tien"
+    },
+    {
+      "id": "9",
+      "name": "Nhan",
+      "birthday": "2023-04-04"
+    },
+    {
+      "id": "10",
+      "name": "Nhan",
+      "birthday": "2023-04-04"
+    },
+    {
+      "id": "12",
+      "name": "TUF FX506LHB",
+      "birthday": "2023-04-19"
+    },
+    {
+      "id": "11",
+      "name": "Phuong",
+      "birthday": "2023-04-19"
+    },
+    {
+      "id": "13",
+      "name": "Dat",
+      "birthday": "2023-04-19"
+    },
+    {
+      "id": "14",
+      "name": "TUF FX506LHB",
+      "birthday": ""
+    },
+    {
+      "id": "15",
+      "name": "TUF FX506LHB",
+      "birthday": ""
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "title": "Lorem ipsum dolor sit amet",
+      "user_id": 1
+    },
+    {
+      "id": 2,
+      "title": "Lorem ipsum dolor sit amet",
+      "user_id": 1
+    },
+    {
+      "id": 3,
+      "title": "Lorem ipsum dolor sit amet",
+      "user_id": 2
+    },
+    {
+      "id": 4,
+      "title": "Lorem ipsum dolor sit amet",
+      "user_id": 3
+    },
+    {
+      "id": 5,
+      "title": "Lorem ipsum dolor sit amet",
+      "user_id": 4
+    }
+  ]
+}
