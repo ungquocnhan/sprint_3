@@ -12,10 +12,10 @@ A
 src/card/Card.css,4\4\4449d2ef5c4563432167d40515d87f4804c14bb4
 E
 src/signin/SignIn.css,7\5\75cf76a7a25304e733e832ddce5d7051964443b6
-@
-src/card/Card.js,b\7\b7399d58a226e2ed272e55b1ce6503d8ad95a481
 <
 package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
+@
+src/card/Card.js,b\7\b7399d58a226e2ed272e55b1ce6503d8ad95a481
 D
 src/signin/SignIn.js,d\f\df3d0388875ba99aa05da436bf0be8c1e664e490
 D

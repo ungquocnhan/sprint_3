@@ -39,8 +39,8 @@ export function EditBook() {
     }
 
     function handleSubmit() {
-        axios.put(`http://localhost:3000/books/${id}`, form)
-            .then(res => {
+        axios.patch(`http://localhost:3000/books/${id}`, form)
+            .then(() => {
                 Swal( "", "Edit success!", "success");
                 navigate("/book");
             })

@@ -9,10 +9,13 @@ export function ListBook() {
     const [listBook, setListBook] = useState([]);
     const pageLimit = 3;
     const [offset, setOffset] = useState(0);
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(0);
     const [currentData, setCurrentData] = useState([]);
-    const [form, setForm] = useState({});
+    const [form, setForm] = useState({
+        search: ''
+    });
     const [message, setMessage] = useState('');
+    const [bookDelete, setBookDelete] = useState({});
 
     function getListBooks() {
         axios.get(`http://localhost:3000/books`)
@@ -33,10 +36,15 @@ export function ListBook() {
         setCurrentData(listBook.slice(offset, offset + pageLimit));
     }, [listBook, offset]);
 
+
     function handleDelete(id) {
+        axios.get(`http://localhost:3000/books/${id}`)
+            .then(res => {
+                setBookDelete(res.data);
+            })
         Swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this file!",
+            title: `Are you delete ${JSON.stringify(bookDelete.title)}?`,
+            text: "Once deleted, you will not be able to recover this book!",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -97,7 +105,7 @@ export function ListBook() {
                     <form>
                         <input type="text"
                                name="search"
-                               value={form.search || ""}
+                               value={form.search}
                                onChange={handleChange}/>
                         <button type="button" onClick={handleSubmit}>Submit</button>
                     </form>
@@ -105,43 +113,45 @@ export function ListBook() {
             </div>
 
             <div>
-                <table>
-                    <thead>
-                    <tr>
-                        <th>STT</th>
-                        <th>Title</th>
-                        <th>Amount</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+                {listBook.length !== 0 ? <div>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Title</th>
+                            <th>Amount</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
 
-                    {currentData.map((item, index) => (
-                            <tr key={item.id}>
-                                <td>{index + 1}</td>
-                                <td>{item.title}</td>
-                                <td>{item.amount}</td>
-                                <td><Link to={`/edit-book/${item.id}`}>Edit</Link></td>
-                                <td>
-                                    <button type="button" onClick={() => handleDelete(item.id)}>Delete</button>
-                                </td>
-                            </tr>
-                        )
-                    )}
+                        {currentData.map((item, index) => (
+                                <tr key={item.id}>
+                                    <td>{index + 1}</td>
+                                    <td>{item.title}</td>
+                                    <td>{item.amount}</td>
+                                    <td><Link to={`/edit-book/${item.id}`}>Edit</Link></td>
+                                    <td>
+                                        <button type="button" onClick={() => handleDelete(item.id)}>Delete</button>
+                                    </td>
+                                </tr>
+                            )
+                        )}
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
 
-                <Paginator
-                    totalRecords={listBook.length}
-                    pageLimit={pageLimit}
-                    pageNeighbours={3}
-                    setOffset={setOffset}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                />
-                <h1>{message}</h1>
+                    <Paginator
+                        totalRecords={listBook.length}
+                        pageLimit={pageLimit}
+                        pageNeighbours={3}
+                        setOffset={setOffset}
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
+                    />
+                </div> : <h1>{message}</h1>}
+
             </div>
         </>
     )
