@@ -2,12 +2,16 @@ import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import Swal from "sweetalert";
+import Paginator from "react-hooks-paginator";
 
 export function CustomerList() {
     const [formSearch, setFormSearch] = useState({});
     const [customerList, setCustomerList] = useState([]);
     const [message, setMessage] = useState('');
-
+    const pageLimit = 3;
+    const [offset, setOffset] = useState(0);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [currentData, setCurrentData] = useState([]);
     function getCustomerList() {
         axios.get(`http://localhost:3000/customer`)
             .then(res => {
@@ -20,7 +24,11 @@ export function CustomerList() {
 
     useEffect(() => {
         getCustomerList();
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        setCurrentData(customerList.slice(offset, offset + pageLimit));
+    }, [customerList, offset]);
 
     function handleChange(event) {
         const {name, value} = event.target;
@@ -48,14 +56,31 @@ export function CustomerList() {
         }
     }
 
-    function handleDelete(id) {
-        axios.delete(`http://localhost:3000/customer/${id}`)
-            .then(() => {
+    const handleDelete = (data) => {
+        Swal({
+            title: `Are you delete ${data.name}?`,
+            text: "Once deleted, you will not be able to recover this customer!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    axios.delete(`http://localhost:3000/customer/${data.id}`)
+                        .then(() => {
+                            Swal("Customer has been deleted!", {
+                                icon: "success",
+                            });
+                            getCustomerList();
+                        })
+                        .catch(err => {
+                            throw err;
+                        })
 
-            })
-            .catch(err => {
-                throw err;
-            })
+                } else {
+                    Swal("Your customer file is safe!");
+                }
+            });
     }
 
     return (
@@ -81,7 +106,7 @@ export function CustomerList() {
                     </form>
                 </div>
             </nav>
-            <div style={{width: "96%", marginLeft: "2%", marginTop: "2%", marginBottom: "2%" }}>
+            <div style={{width: "96%", marginLeft: "2%", marginTop: "2%", marginBottom: "2%"}}>
                 <table className="table table-success table-striped">
                     <thead>
                     <tr>
@@ -100,7 +125,7 @@ export function CustomerList() {
                     </thead>
                     <tbody>
 
-                    {customerList.map(customer => (
+                    {currentData.map(customer => (
                         <tr key={customer.id}>
                             <td>{customer.id}</td>
                             <td>{customer.name}</td>
@@ -112,16 +137,26 @@ export function CustomerList() {
                             <td>{customer.address}</td>
                             <td>{customer.customerType.name}</td>
                             <td>
-                                <Link to={`/customer-create/${customer.id}`}>Edit</Link>
+                                <Link to={`/customer-edit/${customer.id}`}>Edit</Link>
                             </td>
                             <td>
-                                <button type="button" onClick={() => handleDelete(customer.id)}>Delete</button>
+                                <button type="button" onClick={() => handleDelete(customer)}>Delete
+                                </button>
                             </td>
                         </tr>
                     ))}
 
                     </tbody>
                 </table>
+
+                <Paginator
+                    totalRecords={customerList.length}
+                    pageLimit={pageLimit}
+                    pageNeighbours={3}
+                    setOffset={setOffset}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                />
 
                 <h1 style={{color: "red"}}>{message}</h1>
             </div>

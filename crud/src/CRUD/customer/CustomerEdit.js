@@ -1,23 +1,28 @@
-import {useEffect, useState} from "react";
 import {useFormik} from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
 import Swal from "sweetalert";
+import {useEffect, useState} from "react";
+import {useNavigate, useParams} from "react-router-dom";
 
-export function CustomerCreate() {
+export function CustomerEdit() {
     const navigate = useNavigate();
+    const {id} = useParams();
+    const [customer, setCustomer] = useState({});
+    const [customerTypeList, setCustomerTypeList] = useState([]);
+    const initialValues = {
+        name: '',
+        email: '',
+        birthday: '',
+        gender: '',
+        idCard: '',
+        phoneNumber: '',
+        address: '',
+        customerType: {id: 0, name: ''}
+    }
+
     const formik = useFormik({
-        initialValues: {
-            name: '',
-            email: '',
-            birthday: '',
-            gender: '',
-            idCard: '',
-            phoneNumber: '',
-            address: '',
-            customerType: {id: 0, name: ''}
-        },
+        initialValues: initialValues,
         validationSchema: Yup.object({
             name: Yup.string()
                 .min(2, "Mininum 2 characters")
@@ -56,7 +61,16 @@ export function CustomerCreate() {
         }
     })
 
-    const [customerTypeList, setCustomerTypeList] = useState([]);
+    useEffect(() => {
+        axios.get(`http://localhost:3000/customer/${id}`)
+            .then(res => {
+                console.log(res.data)
+                setCustomer(res.data);
+            })
+            .catch(err => {
+                throw err;
+            })
+    }, [id])
 
     useEffect(() => {
         axios.get(`http://localhost:3000/customerTypes`)
@@ -67,6 +81,19 @@ export function CustomerCreate() {
                 throw err;
             })
     }, [])
+
+    useEffect(() => {
+        if (customer) {
+            formik.setFieldValue('name', customer.name);
+            formik.setFieldValue('email', customer.email);
+            formik.setFieldValue('birthday', customer.birthday);
+            // formik.setFieldValue('gender', customer.gender);
+            formik.setFieldValue('idCard', customer.idCard);
+            formik.setFieldValue('phoneNumber', customer.phoneNumber);
+            formik.setFieldValue('address', customer.address);
+            // formik.setFieldValue('customerType', customer.customerType);
+        }
+    }, [customer, formik]);
 
     // passwordRegex = "/^.*(?=.{8,})((?=.*[!@#$%^&*()\\-_=+{};:,<.>]){1})(?=.*\\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/,\n" +
     //     "      \"Password must contain at least 8 characters, one uppercase, one number and one special case character\"";
@@ -292,5 +319,3 @@ export function CustomerCreate() {
         </>
     )
 }
-
-

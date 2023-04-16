@@ -1,20 +1,6 @@
 {
   "customer": [
     {
-      "id": 1,
-      "name": "Nguyễn Thị Hào",
-      "birthday": "1970-11-07",
-      "gender": false,
-      "idCard": "643431213",
-      "phoneNumber": "0945423362",
-      "email": "thihao07@gmail.com",
-      "address": "23 Nguyễn Hoàng, Đà Nẵng",
-      "customerType": {
-        "id": 5,
-        "name": "Member"
-      }
-    },
-    {
       "id": 2,
       "name": "Phạm Xuân Diệu",
       "birthday": "1992-08-08",
@@ -125,86 +111,6 @@
         "id": 1,
         "name": "Diamond"
       }
-    },
-    {
-      "id": 10,
-      "name": "Nguyễn Tâm Đắc",
-      "birthday": "1989-07-01",
-      "gender": true,
-      "idCard": "344343432",
-      "phoneNumber": "0987654321",
-      "email": "dactam@gmail.com",
-      "address": "22 Ngô Quyền, Đà Nẵng",
-      "customerType": {
-        "id": 2,
-        "name": "Platinum"
-      }
-    },
-    {
-      "name": "Quốc Long",
-      "email": "nhan09skbk@gmail.com",
-      "birthday": "2023-04-21",
-      "gender": "male",
-      "idCard": 234567876543,
-      "phoneNumber": 934567890,
-      "address": "22 Ngô Quyền, Đà Nẵng",
-      "customerType": "{\"id\":4,\"name\":\"Silver\"}",
-      "id": 11
-    },
-    {
-      "name": "Quoc Nhan Ung",
-      "email": "nhan@gmail.com",
-      "birthday": "2023-04-07",
-      "gender": "male",
-      "idCard": 234890234890,
-      "phoneNumber": 932456123,
-      "address": "23 Nguyễn Hoàng, Đà Nẵng",
-      "customerType": "[object Object]",
-      "id": 12
-    },
-    {
-      "name": "Quoc Nhan Ung",
-      "email": "nhan@gmail.com",
-      "birthday": "2023-04-07",
-      "gender": "male",
-      "idCard": 234890234890,
-      "phoneNumber": 932456123,
-      "address": "23 Nguyễn Hoàng, Đà Nẵng",
-      "customerType": "[object Object]",
-      "id": 13
-    },
-    {
-      "name": "Quoc Nhan Ung",
-      "email": "nhan@gmail.com",
-      "birthday": "2023-04-07",
-      "gender": "male",
-      "idCard": 234890234890,
-      "phoneNumber": 932456123,
-      "address": "23 Nguyễn Hoàng, Đà Nẵng",
-      "customerType": "[object Object]",
-      "id": 14
-    },
-    {
-      "name": "Quoc Nhan Ung",
-      "email": "nhan09skbk@gmail.com",
-      "birthday": "2023-04-07",
-      "gender": "male",
-      "idCard": 234890234890,
-      "phoneNumber": 932456123,
-      "address": "22 Ngô Quyền, Đà Nẵng",
-      "customerType": "{\"id\":3,\"name\":\"Gold\"}",
-      "id": 15
-    },
-    {
-      "name": "Quốc Long",
-      "email": "nhan91bk@gmail.com",
-      "birthday": "2023-04-20",
-      "gender": "male",
-      "idCard": 234890234890,
-      "phoneNumber": 934567890,
-      "address": "23 Nguyễn Hoàng, Đà Nẵng",
-      "customerType": "{\"id\":3,\"name\":\"Gold\"}",
-      "id": 16
     }
   ],
   "customerTypes": [

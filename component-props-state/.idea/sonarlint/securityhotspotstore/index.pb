@@ -31,22 +31,22 @@ G
 src/show_alert/Hello.js,7\c\7cc7212c258ba673935276ffa0bac20631572ec5
 N
 src/form_login_logout/Login.js,1\5\15cc7221553c4d7f879bbca6773cb666fc173e7b
+I
+src/login_logout/Check.js,d\1\d152cb3a9ff4f13201d5ae9d94d35f8f6fc6a246
 Q
 !src/add_component/AddComponent.js,0\3\033db1245a20d7c275d76838a55ece3ffa22aa76
-P
- src/student_info/StudentInfo.css,2\c\2c73afabac4c21173b18878d6164a09ecdacb6a8
 O
 src/student_info/StudentInfo.js,a\4\a4f705abe0d3e7c559d8b9563fbdcdcec90885e2
+P
+ src/student_info/StudentInfo.css,2\c\2c73afabac4c21173b18878d6164a09ecdacb6a8
+L
+src/Calculator/Calculator.js,b\c\bc678eebe8ac8d23f683ec486d29571e757d5d3f
+Q
+!src/management_student/Student.js,e\e\ee9f21ff54ce1ef3472cd791730f935cdccd987f
+<
+src/index.js,f\9\f900edc44cb929c2267a16100a32851f6d5b477d
+@
+src/todo/Todo.js,1\2\12afb825501465dd371164f16dd7701a36afa76e
 :
 
 src/App.js,1\e\1e43fa63aecd2127be034b3fb9d4caa172275714
-Q
-!src/management_student/Student.js,e\e\ee9f21ff54ce1ef3472cd791730f935cdccd987f
-I
-src/login_logout/Check.js,d\1\d152cb3a9ff4f13201d5ae9d94d35f8f6fc6a246
-@
-src/todo/Todo.js,1\2\12afb825501465dd371164f16dd7701a36afa76e
-<
-src/index.js,f\9\f900edc44cb929c2267a16100a32851f6d5b477d
-L
-src/Calculator/Calculator.js,b\c\bc678eebe8ac8d23f683ec486d29571e757d5d3f
